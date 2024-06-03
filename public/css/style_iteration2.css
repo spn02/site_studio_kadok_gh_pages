@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  color: green;
+}
+
+.panelLeft {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  /*
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  */
+  background-image: url(../images/background_00.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.panelLeft h1 {
+  border: 1px solid red;
+  width: 50%;
+  left: 20%;
+  top: 50%;
+  text-align: center;
+}
+
+nav {
+  position: fixed;
+  width: 50%;
+  z-index: 10;
+  margin: auto;
+  text-align: center;
+  border: 1px solide yellow;
+  background-color: red;
+}
+.page {
+  height: 100vh;
+}
+
+.home-page {
+  position: relative;
+  z-index: 1;
+  width: 50vw;
+  left: 50%;
+  background-color: aqua;
+  /*
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  */
+  /*
+  background-color: green;
+  background-attachment: fixed;
+  */
+}
+.home-page .panel {
+  width: 100%;
+  height: 100vh;
+}
+.home-page .panel--panelRight {
+  overflow: hidden;
+  background-color: black;
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+.home-page .panel--panelRight .panelRight__section {
+  width: 100%;
+  border: 1px solid white;
+}
+.home-page .panel--panelRight .panelRight__section--Top .slidePanel {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  z-index: 0;
+  animation: animationSlide1 20s infinite;
+  animation-direction: alternate;
+}
+@keyframes animationSlide1 {
+  0%, 12.5% {
+    transform: translateY(0%);
+  }
+  25%, 37.5% {
+    transform: translateY(-100%);
+  }
+  50%, 62.5% {
+    transform: translateY(-200%);
+  }
+  75%, 87.5% {
+    transform: translateY(-300%);
+  }
+  100% {
+    transform: translateY(-300%);
+  }
+}
+.home-page .panel--panelRight .panelRight__section--Top .slidePanel__slide {
+  height: 50vh;
+  width: 100%;
+  border: 1px solid green;
+}
+.home-page .panel--panelRight .panelRight__section--Top .slidePanel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home-page .panel--panelRight .panelRight__section--Bottom {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  z-index: 1;
+}
+.home-page .panel--panelRight .panelRight__section--Bottom .panelRight__content {
+  border: 1px solid green;
+  background-color: rgba(0, 255, 0, 0.8);
+}
+.home-page .panel--panelRight .panelRight__section--Bottom .panelRight__content--news {
+  background-color: #1C2D22;
+  color: white;
+}
+.home-page .panel--panelRight .panelRight__section--Bottom .panelRight__content--newsletter {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#page-deux {
+  position: relative;
+  left: 50vw;
+  width: 50vw;
+  height: 100vh;
+  z-index: 2;
+  background-color: #7775E6;
+  /*
+  background-image: url(../images/Fond_forme_design_00.png);
+          //background-size: cover;
+          background-position-x: 50vw;
+          background-repeat: no-repeat;
+
+  background-attachment: fixed;
+  */
+}
+
+#page-trois {
+  /*
+  position: absolute;
+  margin-top: 200vh;
+  */
+  position: relative;
+  width: 50vw;
+  left: 50vw;
+  z-index: 3;
+  background-color: red;
+}
+
+/*# sourceMappingURL=style_iteration2.css.map */

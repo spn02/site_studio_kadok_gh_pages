@@ -1,0 +1,257 @@
+// code scss pour la page projects
+@import '../../scss/_main.scss';
+@import '../../scss/components/newsletter';
+
+@import '../components/consent-checkbox.scss';
+
+//___________________Styles spécifiques pour la page de détail des news
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../../images/paysage_silhouette_vectoriel_00.png);
+    background-size: 100% 50%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    z-index: -1;
+}
+
+.btn-container {
+
+    margin-top: calc($header-small-bar-size + 40px);
+    margin-bottom: 16px;
+
+    .back-button {
+
+
+        margin-left: 5%;
+        cursor: pointer;
+        //text-decoration: underline;
+
+        border-radius: 0;
+        background-color: $color-primary;
+    }
+
+}
+
+// Panel principal pour le contenu de la news
+.news-main-content {
+
+    @media (max-width: 768px) {
+
+
+        width: 100%;
+        left: 0;
+        top: 0;
+
+    }
+
+    position: relative;
+    z-index: 1;
+
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.9); // légère transparence
+    left: 5%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    // Bannière de la news
+    .news-banner {
+        width: 100%;
+        display: block; // s'assurer qu'il s'étend sur toute la largeur
+
+        &__img {
+
+            width: 100%;
+            object-fit: cover; // or 'contain', depending on your need
+
+        }
+    }
+
+    // Titre et texte de la news
+    .news-info {
+
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        @media (max-width: 768px) {
+
+            padding: 2rem 1.3rem;
+        }
+
+        h1 {
+            font-family: $font-family-roboto;
+            font-size: 2.5rem;
+            margin: 8px 0;
+
+            color: $color-primary;
+        }
+
+        .news-date {
+            font-size: 1rem;
+            color: $color-primary;
+        }
+
+        .news-text {
+            padding: 2rem 0;
+
+            h2 {
+
+                @include test-heading-style-special($size: "small",
+                    $text-color: white,
+                    $isrounded : true,
+                    $bg-color : $color-primary,
+                    $border-color : none);
+
+                margin-top: 0;
+                margin-left: 0;
+
+            }
+
+            p {
+
+                @include paragraph-news-style;
+                color: rgba($color-primary, 0.9);
+
+                margin-bottom: 16px;
+            }
+
+            .news-text__intro {
+
+
+                @include lead-paragraph-style;
+
+                text-align: justify;
+                color: darken($color-primary, 20%);
+                margin-top: 0;
+
+
+            }
+
+            color: darken($color-primary, 15%);
+        }
+    }
+
+
+}
+
+// Section latérale pour les newsletters et dernières news
+.news-aside {
+
+    @media (max-width: 768px) {
+
+        position: relative;
+        width: 100%;
+        right: 0;
+        top: 0;
+
+    }
+
+    position: absolute;
+    //position: sticky;
+
+    top: calc($header-small-bar-size + 40px + 2.6rem + 16px);
+
+    width: 25%; // ajuster la largeur en conséquence
+
+    right: 5%;
+
+    display: flex;
+    flex-direction: column;
+
+    // Styles pour la section des newsletters
+
+    .news-newsletter {
+
+        @include newsletter-style;
+    }
+
+    // Styles pour la liste des dernières news
+    .news-latest {
+
+
+        background-color: rgba(255, 255, 255, 0.9); // légère transparence
+
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+        height: max-content;
+
+        margin-bottom: 2.5rem;
+
+        display: flex;
+        flex-direction: column;
+
+
+
+        h2::before {
+
+            content: '';
+
+            background-color: $color-primary;
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+
+            z-index: -1;
+        }
+
+        h2 {
+
+            z-index: 1;
+
+            height: 20%;
+
+            @include test-heading-style-special($size: "small",
+                $text-color: $color-primary,
+                $isrounded : none,
+                $bg-color : none,
+                $border-color :none);
+            color: white;
+        }
+
+        ul {
+
+            width: 100%;
+
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            flex-grow: 1;
+
+            padding: 0 2rem 2rem;
+
+            text-align: center;
+
+            // Styles pour les items de la liste
+            li {
+
+                border-bottom: 1px solid rgba($color-primary, 0.5);
+                margin-top: 1rem;
+
+                a {
+                    text-decoration: none;
+                    color: $color-primary;
+
+                    line-height: 2rem;
+                    //font-size: 1rem;
+
+                    &:hover {
+                        color: $color-hover;
+                    }
+                }
+            }
+        }
+    }
+}

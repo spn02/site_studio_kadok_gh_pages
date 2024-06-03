@@ -1,0 +1,467 @@
+// code scss pour la page projects
+@import '../../scss/_main.scss';
+
+.content {
+
+    width: 100%;
+}
+
+
+.page {
+
+    width: 100%;
+    min-height: 100vh;
+    height: max-content;
+    padding: 32px;
+    padding-top: 96px; // same height as header to push the content down
+
+
+    @media (max-width: 768px) {
+
+        padding-left: 0px;
+        padding-right: 0px;
+
+        height: max-content;
+        min-height: 100vh;
+
+    }
+
+    a {
+
+        color: $color-primary;
+        text-decoration: none;
+
+        &:hover {
+
+            text-decoration: underline;
+        }
+    }
+
+}
+
+.hero-section {
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 0;
+
+
+    position: relative;
+
+    .hero-video {
+
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+
+        h2 {
+
+
+            //font-size: 4rem;
+
+            @include test-heading-style-special($size: "medium",
+                $text-color: white,
+                $isrounded : true,
+                $bg-color : $color-accent,
+                $border-color :none);
+
+            margin-bottom: 8px;
+
+
+
+        }
+
+        p {
+
+            @include lead-paragraph-style;
+            margin-top: 0;
+
+            color: white;
+        }
+    }
+}
+
+.project-about {
+
+    position: relative;
+
+    background-color: $color-accent;
+
+    display: flex;
+    justify-content: space-between;
+
+
+    @media (max-width: 768px) {
+
+        flex-direction: column;
+        min-height: 100vh;
+
+    }
+
+    &__part {
+
+        width: 50%;
+        height: 100%;
+
+
+        padding-left: 16px;
+        padding-right: 16px;
+
+        @media (max-width: 768px) {
+
+            width: 100%;
+            height: 100%;
+        }
+
+        &--media {
+
+            height: 50vh;
+
+            display: flex;
+            justify-content: center;
+
+            @media (max-width: 768px) {
+
+                padding-left: 0px;
+                padding-right: 0px;
+
+                margin-bottom: 32px;
+
+                height: max-content;
+            }
+
+            video {
+
+                width: 100%;
+                height: auto;
+
+            }
+
+            iframe {
+
+                width: 100%;
+                height: auto;
+
+                @media (max-width:768px) {
+
+                    width: 560px;
+                    height: 315px;
+
+                }
+            }
+
+        }
+
+        &--content {
+
+            h2 {
+
+                @include test-heading-style-special($size: "medium",
+                    $text-color: $color-accent,
+                    $isrounded : true,
+                    $bg-color : white,
+                    $border-color : none);
+
+                margin-top: 0;
+                margin-bottom: 2.5rem;
+
+            }
+
+            h3 {
+
+                @include test-heading-style-special($size: "small",
+                    $text-color: $color-accent,
+                    $isrounded : true,
+                    $bg-color : white,
+                    $border-color : none);
+
+                margin-top: 0;
+                margin-left: 0;
+                margin-bottom: 1.5rem;
+
+            }
+
+            p {
+
+                @include paragraph-news-style;
+                margin-bottom: 32px;
+
+
+            }
+
+            .container__button {
+
+                display: flex;
+                justify-content: center;
+
+                .btn {
+
+                    background-color: $color-primary;
+                    color: white;
+
+                }
+
+            }
+
+
+
+        }
+
+    }
+
+}
+
+.project-gallery {
+
+    position: relative;
+    background-color: #2E2C5B;
+
+    h2 {
+
+        @include test-heading-style-special($size: "medium",
+            $text-color: #2E2C5B,
+            $isrounded : true,
+            $bg-color : white,
+            $border-color : none);
+
+        margin-top: 0;
+        margin-bottom: 2.5rem;
+
+    }
+
+    h3 {
+
+        @include test-heading-style-special($size: "small",
+            $text-color: #2E2C5B,
+            $isrounded : true,
+            $bg-color : white,
+            $border-color : none);
+
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 1.5rem;
+
+    }
+
+    p {
+
+        @include paragraph-news-style;
+        color: lighten($color-primary, 30%);
+
+    }
+
+    .container__button {
+
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+
+        display: flex;
+        justify-content: center;
+
+        .btn {
+
+            background-color: rgba(white, 0.2);
+            color: white;
+
+            border-radius: 20px;
+
+        }
+    }
+
+    .thumbnails-container {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-bottom: 40px;
+
+        @media (max-width: 768px) {
+
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+        .thumbnail {
+
+            @media (max-width: 768px) {
+
+                width: 100%;
+                height: auto;
+
+
+
+            }
+
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .full-image-viewer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        z-index: 1000;
+
+        img {
+            max-width: 95%;
+            max-height: 100vh;
+        }
+
+        button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 3em;
+            cursor: pointer;
+
+            &.close {
+                position: absolute;
+                top: 32px;
+                right: 40px;
+            }
+
+            &.prev,
+            &.next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+
+            }
+
+            &.info-toggle {
+                //right: 20px;
+
+                position: absolute;
+                transform: translateY(-50%);
+
+                //border: 1px solid red;
+                left: 40px;
+                top: 40px;
+
+                width: 32px;
+                height: 32px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                background-color: rgba(white, 0.0);
+                border-radius: 20px;
+
+                &:hover {
+                    background-color: rgba(white, 0.8); // Assombrit le bouton au survol pour un feedback visuel
+                }
+
+                &:focus {
+                    //outline: none;      // Supprime le contour de focus pour éviter les styles par défaut moches
+                    background-color: rgba(white, 0.7); // Un peu plus sombre que le hover
+                }
+
+                &:active {
+                    box-shadow: inset 0 2px 5px rgba(white, 0.3); // Ombre intérieure pour l'effet de pression
+                }
+            }
+
+            &.prev {
+                left: 40px;
+            }
+
+            &.next {
+                right: 40px;
+            }
+        }
+
+        .image-description {
+            position: absolute;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            display: none; // initially hidden
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+}
+
+.project-detail {
+
+
+    background-color: $color-secondary;
+
+    h3 {
+
+        @include test-heading-style-special($size: "small",
+            $text-color: $color-secondary,
+            $isrounded : true,
+            $bg-color : white,
+            $border-color : none);
+
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 1.5rem;
+
+    }
+
+    p {
+
+        @include paragraph-news-style;
+
+        color: white;
+
+    }
+
+}
+
+
+h3 {
+
+
+    @media (max-width: 768px) {
+        // pour "scotcher" problème titre h3 coller en mode mobile car suppression des padding lateraux pour les media
+
+        position: relative;
+        left: 32px;
+
+    }
+}

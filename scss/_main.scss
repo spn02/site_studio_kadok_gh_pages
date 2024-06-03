@@ -1,0 +1,34 @@
+// Abstracts
+
+@import '././abstracts/_variables.scss'; // ou @import '../scss/abstracts/_variables.scss';
+@import '././abstracts/_mixins.scss';
+
+// Base
+
+@import '././base/_base.scss';
+
+// Layout
+
+@import '././layout/_header.scss';
+@import '././layout/_footer.scss';
+
+
+@import '././base/_animations.scss';
+
+// Components
+
+@import '././components/_button.scss';
+@import '././components/_spinner.scss';
+@import '././components/_modals';
+@import '././components/_tooltip.scss';
+
+//@import '././base/typography';
+
+//@media only screen and (max-width: 768px) { }
+/* Règles CSS pour les écrans de largeur 600px ou moins (typiquement smartphones) */
+
+//@media only screen and (min-width: 769px) {}
+
+/* Règles CSS pour les écrans de largeur plus de 601px (typiquement tablettes, laptops et desktops) */
+
+

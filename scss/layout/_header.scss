@@ -1,0 +1,614 @@
+.site-header {
+
+    position: fixed;
+
+    z-index: 100;
+
+    &--primary-style {
+
+
+        left: 0;
+        top: 0;
+
+        width: 50%;
+        height: 100vh;
+
+        @media (max-width: 768px) {
+
+            position: absolute;
+
+            &::before {
+
+                content: '';
+                z-index: 2;
+                display: block;
+                position: fixed;
+                background-color: white;
+                height: 4rem; // Hauteur de l'espace vide souhaité
+                width: 100%;
+                pointer-events: none;
+
+            }
+
+
+            width: 100%;
+            height: 100vh;
+
+        }
+
+
+    }
+
+    &--secondary-style {
+
+        background-color: white;
+
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+
+        border-bottom: 1px solid grey;
+        border-bottom-style: dotted;
+
+        display: flex;
+
+    }
+
+    .header-title {
+
+        position: relative;
+
+        h1 {
+
+
+            @extend .focus-in-expand;
+            color: $color-primary;
+        }
+
+        &--medium {
+
+            top: 20%;
+
+            h1 {
+
+                position: relative;
+                margin: auto;
+
+                width: 100%;
+                height: 7rem;
+
+                text-align: center;
+                font-size: 7rem;
+
+                font-family: $font-family-kadok;
+
+                @media (max-width: 768px) {
+
+                    font-size: 5rem;
+
+                }
+
+            }
+
+            h2 {
+
+                position: relative;
+
+                width: 40%;
+                margin: auto;
+
+                font-family: $font-family-secondary-title;
+
+                font-size: 1rem;
+                font-weight: 200;
+
+                text-align: right;
+
+                color: $color-secondary;
+
+            }
+
+            p {
+
+                @include lead-paragraph-style;
+
+                margin-top: 5%;
+
+            }
+
+        }
+
+        &--secondary-style {
+
+            margin-left: 5%;
+            margin-top: 1rem;
+
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            h1 {
+
+                a {
+
+                    text-decoration: none;
+                    font-family: $font-family-kadok;
+
+                    font-size: 3rem;
+                    line-height: 3rem;
+                    padding: 0;
+
+                    color: $color-primary;
+
+                }
+
+            }
+
+            h3 {
+
+
+                align-self: flex-end;
+
+                font-family: $font-family-kadok;
+
+                font-size: 1rem;
+                line-height: 1rem;
+                font-weight: 200;
+
+                color: $color-secondary;
+
+            }
+
+        }
+
+    }
+
+    .site-navigation {
+
+        position: relative;
+
+        width: 100%;
+
+        top: 20%;
+
+
+        z-index: 3;
+
+        padding: 0;
+
+        margin-top: 1rem;
+
+        display: grid;
+        place-items: center;
+
+
+        @media (max-width: 768px) {
+
+            position: fixed;
+
+            width: 100%;
+            height: 100%;
+            top: 0;
+            margin-top: 0rem;
+
+            pointer-events: none; // Désactive les événements de souris quand il est fermé
+
+        }
+
+
+
+        .nav__toggle {
+
+            display: none; // Le toggle est caché par défaut
+
+            @media (max-width: 768px) {
+                display: block; // Afficher le toggle sur petits écrans
+                position: absolute;
+
+                top: 1rem;
+                right: 1rem;
+                width: 2rem;
+                height: 2rem;
+                z-index: 200;
+
+                pointer-events: all; // Active les événements pour le toggle burger
+
+                opacity: 0; // mettre > 0 lors du debug remettre à 1 pour le déploiement!
+            }
+
+        }
+
+
+        .nav__toggle:checked+.nav__burger+.container_menu {
+
+            display: flex; // Afficher le menu quand le toggle est checked
+            flex-direction: column;
+
+            pointer-events: all; // Active les événements pour le toggle burger
+        }
+
+
+        .nav__burger {
+
+            display: none; // Le label/bouton burger est caché par défaut
+
+            @media (max-width: 768px) {
+
+                display: block;
+
+                position: absolute;
+
+                cursor: pointer;
+
+                color: rgba($color-primary, 1);
+
+                top: 1rem;
+                right: 1rem;
+
+                z-index: 201;
+
+                .burger-icon,
+                .close-icon {
+                    width: 2rem;
+                    height: 2rem;
+                }
+
+                .close-icon {
+                    display: none; // Par défaut, cachée
+                }
+
+            }
+        }
+
+
+        .container_menu {
+
+            display: none;
+
+            position: relative;
+
+
+            height: 100%;
+
+            z-index: 3000;
+
+
+            max-width: 100%;
+
+
+            @extend .slide-in-blurred-top;
+
+            @media (min-width: 769px) {
+
+                display: block;
+
+            }
+
+
+            @media (max-width: 768px) {
+
+                position: absolute;
+
+                width: 100%;
+                top: 4rem;
+                height: calc(100% - 4rem);
+
+                background-color: rgba($color-accent, 0.98);
+
+
+
+            }
+
+        }
+
+        .nav__menu {
+
+
+            display: flex;
+            list-style-type: none;
+
+
+            z-index: 3000;
+
+
+
+            &--primary-style {
+
+
+                @media (min-width: 769px) {
+
+                    background-color: $color-primary;
+                    border-radius: 40px;
+
+                }
+
+
+            }
+
+            @media (min-width: 769px) {
+
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            @media (max-width: 768px) {
+
+
+                margin-top: 40px;
+                margin-bottom: 40px;
+                border-bottom: 1px solid white;
+
+                width: 100%;
+
+                flex-direction: column; // Stack les liens verticalement
+
+
+            }
+
+
+            &__item {
+
+                padding: 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background-color 0.2s ease;
+
+
+
+                @media (min-width: 769px) {
+
+
+
+                    &:first-child {
+                        border-radius: 40px 0 0 40px; // Arrondi à gauche pour le premier bouton
+                    }
+
+                    &:last-child {
+                        border-radius: 0 40px 40px 0; // Arrondi à droite pour le dernier bouton
+                    }
+
+                }
+
+
+                @media (max-width: 768px) {
+
+                    flex: none;
+
+                }
+
+                &:hover {
+
+                    background-color: $color-accent;
+                    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8); // Ajustez la couleur et l'intensité selon vos besoins
+
+                }
+
+                &--active {
+
+                    background-color: $color-secondary;
+
+                    .nav__menu__item__link {
+
+                        color: white;
+
+                    }
+
+                }
+
+
+
+
+                &__link {
+
+                    //border: 1px solid blue;
+                    display: block;
+
+                    width: max-content;
+                    height: 3.5rem;
+
+                    padding: 10px;
+
+                    font-family: $font-button;
+                    font-size: 1rem;
+                    text-align: center;
+                    //padding: 20px;
+
+                    text-decoration: none;
+
+
+
+                    color: white;
+
+
+                    &--secondary-style {
+
+                        @media (min-width:769px) {
+
+                            color: $color-primary;
+
+                        }
+
+                    }
+
+                    &:hover {
+
+                        color: white;
+                    }
+
+                    display: flex;
+                    align-items: center; // Centrer l'icône avec le texte verticalement
+                    justify-content: center; // Centrer horizontalement
+
+                    .menu-icon {
+
+                        //border: 1px solid red;
+
+                        width: 20px; // Ajustez la largeur de l'icône ici
+                        height: 20px; // Ajustez la hauteur de l'icône ici
+                        margin-right: 0.5rem; // Espace entre l'icône et le texte
+
+                        // Masquer l'icône en mode desktop pour les liens autres que Home
+                        @media (min-width: 769px) {
+                            &.menu-icon--desktop-hidden {
+                                display: none;
+                            }
+                        }
+
+                    }
+
+                    .fas {
+                        // pour les font awesome si utilisation...
+
+                        color: rgba(red, 1);
+                        margin-right: 0.5rem; // Espace entre l'icône et le texte
+
+                    }
+
+                }
+
+
+
+            }
+
+        }
+
+
+    }
+
+}
+
+.social-media {
+
+
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    //margin: auto;
+
+    &--desktop-only {
+
+        @media (max-width: 768px) {
+            display: none; // Cache les liens sociaux pour le bureau en mode mobile
+        }
+
+        &--primary-style {
+            // pour les headers style de la page index
+
+            margin-top: 2rem;
+            left: calc(50% - 96px);
+            top: 0;
+            position: absolute;
+        }
+
+        &--secondary-style {
+
+
+            align-self: center;
+            margin-right: 5%;
+
+            z-index: 1000;
+        }
+
+    }
+
+    &--mobile-only {
+
+        display: none; // Cache par défaut les liens sociaux pour mobile
+
+        @media (max-width: 768px) {
+
+            display: flex; // Affiche les liens sociaux pour mobile dans le menu déroulant
+
+            align-self: center;
+
+        }
+    }
+
+
+    .social-link {
+
+        // border: 1px solid green;
+
+        margin: 0 10px;
+
+
+        width: 32px;
+        height: 32px;
+
+
+
+        @media (min-width: 769px) {
+
+            // background-color: rgba($color-primary, 1);
+            border-radius: 50%;
+
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: transform 0.3s ease; // Animation fluide pour l'agrandissement
+
+        &:hover {
+            transform: scale(1.1); // Agrandit l'icône de 10% lors du survol
+        }
+
+
+        img {
+            width: 24px; // Taille des icônes
+            height: auto;
+        }
+    }
+}
+
+.video-background {
+    // uniquement pour les versions desktop header type 1
+
+    position: relative;
+
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+
+    z-index: 1;
+
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+
+        width: 100vw;
+        position: relative;
+
+    }
+
+    .bg-video {
+
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 100vh;
+        width: 50%;
+
+        object-fit: cover;
+        object-position: bottom right;
+
+        z-index: 2;
+
+        @media (max-width: 768px) {
+
+            width: 100vw;
+            object-fit: cover;
+            object-position: bottom right;
+
+
+        }
+
+    }
+
+}

@@ -1,0 +1,42 @@
+
+
+// Palette de couleurs
+$color-primary: #5E53A7; // Couleur primaire, peut-être pour les titres ou éléments importants
+$color-secondary: #08D0F4; // Couleur secondaire, pour les hover ou éléments secondaires
+$color-accent : #E6D275; // Couleur d'accentuation, utilisée pour les boutons ou liens
+$color-hover: #0000ee; // Couleur au survol des liens
+
+//$color-link: #1a0dab; // Couleur des liens
+//$color-primary: red;
+
+
+// typographies
+
+//@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Coda:wght@400;800&family=Jomhuria&family=Poiret+One&family=Protest+Revolution&family=Protest+Riot&family=Protest+Strike&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teko:wght@300..700&family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Coda:wght@400;800&family=Hind+Madurai:wght@300;400;500;600;700&family=Jomhuria&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poiret+One&family=Protest+Revolution&family=Protest+Riot&family=Protest+Strike&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teko:wght@300..700&family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teko:wght@300..700&display=swap');
+
+$font-family-roboto: 'Roboto', sans-serif;
+/*
+$font-family-jomhuria: 'Jomhuria', sans-serif;
+$font-family-trirong : 'Trirong' serif;
+$font-family-coda : 'Coda' system-ui;
+$font-family-poiret-one : 'Poiret One' sans-serif;
+$font-family-bakBakOne : "Bakbak One", sans-serif;
+*/
+
+$font-family-kadok : 'Teko', sans-serif;
+$font-family-secondary-title: 'Roboto', sans-serif;
+//$font-family-primary-normal: 'Roboto', sans-serif;
+
+
+
+$font-button : 'Roboto', sans-serif;
+$font-title: 'Roboto', sans-serif;
+$font-lead-paragraph: 'Lora', serif;
+$font-text-normal: 'Hind Madurai', sans-serif;
+
+
+// ____________Autres constantes
+
+$header-small-bar-size : 50px;

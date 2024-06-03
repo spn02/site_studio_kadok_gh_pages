@@ -1,0 +1,82 @@
+// ne sont pas utilisé pour le moment (j'ai utilisé les mixins à la place pour les titres ! )
+
+.heading {
+
+    @include heading-style; // style de base commun à tous les headings
+
+    &--rounded {
+
+
+        //background-color: ;
+        border: 1px solid black;
+        border-radius: 2.5rem;
+
+
+    }
+
+    &--small{
+
+        font-family: $font-family-roboto; 
+                font-size: 2rem;
+                padding: 0.5rem 1rem;
+                //height: 3rem;
+                line-height: 3rem;
+
+        margin-top: 1rem;
+
+        
+    }
+
+    &--medium{
+
+        font-family: $font-family-roboto; 
+                font-size: 3rem;
+                padding: 0.5rem 1rem;
+                //height: 4rem;
+                line-height: 4rem;
+
+        margin-top: 2.5rem;
+    }
+
+}
+
+
+
+.bordered{
+
+    &--rounded{
+  
+        border-radius: 2.5rem;
+    
+    }
+
+}
+
+.text-color{
+
+
+    &--primary{
+
+
+    }
+
+    &--secondary{
+
+
+    }
+}
+
+
+.bg-color{
+
+    &--primary{
+
+
+    }
+
+    &--secondary{
+
+
+    }
+
+}

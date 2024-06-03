@@ -1,0 +1,33 @@
+{
+  "name": "site_studio_kadok",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch scss/:public/css/"
+  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spn02/site_studio_kadok.git"
+  },
+  "keywords": [
+    "site",
+    "studio",
+    "jeux",
+    "vidéo",
+    "indépendant",
+    "indie",
+    "gaming"
+  ],
+  "author": "sarpédon sarpédon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spn02/site_studio_kadok/issues"
+  },
+  "homepage": "https://github.com/spn02/site_studio_kadok#readme",
+  "devDependencies": {
+    "sass": "^1.72.0"
+  }
+}

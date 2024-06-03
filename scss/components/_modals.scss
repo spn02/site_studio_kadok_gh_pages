@@ -1,0 +1,131 @@
+.modal {
+  display: none; // caché par défaut
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  $new-color: darken($color-primary, 30%);
+  background: rgba($new-color, 0.96);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  overflow-y: auto;
+
+  &__content {
+    background: white;
+    
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+  }
+
+  &__header {
+    //border: 1px solid black;
+
+    //height: 25vh;
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    //margin-bottom: 24px;
+  }
+
+  &__close {
+   // border: 1px solid red;
+    //position: relative;
+    justify-self: flex-end;
+    align-self: flex-end;
+    
+    cursor: pointer;
+    font-size: 2rem;
+  }
+
+  &__icon {
+    
+    //border: 1px solid green;
+
+    height: 3.5rem;
+
+    img{
+
+      height: 100%;
+      width: auto;
+      
+    }
+    
+  }
+
+  &__title {
+    
+
+    //border: 1px solid red;
+
+    //line-height: 3rem;
+
+    @include test-heading-style-special($size: "small",
+                    $text-color: $color-primary,
+                    $isrounded : false,
+                    $bg-color : none,
+                    $border-color :none);
+
+  }
+
+  &__text {
+
+    margin-top: 10px;
+
+    //@include lead-paragraph-style($color-primary);
+
+    color: green;
+  
+  }
+
+  &__button-container {
+
+    background-color: $color-accent;
+    border-radius: 0 0 5px 5px;
+
+    //height: 25vh;
+    position: relative;
+    //margin-top: 10px;
+
+    display: flex;
+    justify-content: center;
+
+  }
+
+  /*
+  &__button-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ccc; // couleur de fond de la div bouton
+    opacity: 0.5; // opacité de la div bouton
+    border-radius: 5px;
+  }
+  */
+
+  &__button {
+
+    @extend .btn;
+    z-index: 1;
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    background-color: $color-primary;
+    
+   
+    
+
+  }
+
+
+}

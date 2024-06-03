@@ -1,0 +1,143 @@
+@mixin newsletter-style{
+
+    height: 50vh;
+
+    background-color: rgba(255, 255, 255, 0.9); // légère transparence
+    // Appliquer des styles supplémentaires pour les newsletters ici
+
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+
+    @media (max-width: 768px) {
+
+        //border: 1px solid black;
+        min-height: 50vh;
+        height: max-content;
+    }
+
+        
+
+    h2 {
+        //border: 1px solid orange;
+
+        @include test-heading-style-special($size: "small",
+            $text-color: $color-primary,
+            $isrounded : none,
+            $bg-color : none,
+            $border-color :none);
+
+
+        //height: 20%;
+        height: fit-content;
+
+        //margin-top: 1rem;
+
+        border-bottom: 2px solid grey;
+        border-bottom-style: dotted;
+        //margin: 0;
+
+    }
+
+    .newsletter-form {
+
+        //border: 1px solid red;
+
+        //overflow-y: auto;
+
+        flex-grow: 1;
+
+        //height: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        &__title-label {
+
+            //border: 1px solid black;
+
+            @include lead-paragraph-style;
+
+            margin-top: 0;
+
+            //flex-grow: 1;
+            flex: 1;
+
+
+        }
+
+        &__group {
+
+            
+
+            flex-grow: 1;
+
+            //border: 1px solid blue;
+
+            background-color: $color-accent;
+        
+            //flex-basis: 60%;
+            //height: 25vh;
+            min-height: 25vh;
+            ///car flex-basis marche super bien sur desktop(50% de newsletter-section)
+                /// mais pas pour togle device toolbar, et heigh seul ne marche pas bien sur desktop donc min-height
+                ///marche le mieux pour les différents supports
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 20px;
+
+        }
+
+        &__input-email {
+
+
+            //border: 1px solid #ccc;
+
+            position: relative;
+            border: none;
+            max-width: 300px;
+            width: 100%;
+
+            //margin-top: 20px;
+
+            padding: 0.75rem 1.25rem;
+            text-align: center;
+            //text-decoration: none;
+            background-color: rgba(white, 1);
+            border-radius: 0.3rem;
+
+        }
+
+        &__button-send {
+
+
+            //display: flex;
+            //margin: auto;
+            //align-content: center;
+
+            @extend .btn--primary;
+
+            background-color: $color-primary;
+            color: white;
+
+            margin-bottom: 20px;
+
+
+        }
+
+
+    }
+    
+
+}

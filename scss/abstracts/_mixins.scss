@@ -1,0 +1,167 @@
+
+//_____________Styles paragraphe_____________*
+
+// a voir class extend
+
+@mixin heading-style($color : black, $size: "medium"){ // titre h2 newsletter et news
+
+    color: $color;
+    //text-transform: uppercase;
+
+    display: flex;
+     width: fit-content;
+
+     justify-content: center;
+     align-content: center;
+     
+
+     margin: auto;
+    
+     @debug " la taille = #{$size}";
+
+     @if $size=="medium"{
+
+       // @debug " la taille = medium";
+
+    
+        font-family: $font-title; 
+                
+                font-size: 2.6rem;
+                padding: 0.5rem 1rem;
+                font-weight: 700;
+                //height: 4rem;
+                line-height: 3rem;
+
+        
+        margin-top: 2.5rem;
+
+     }
+
+     @if $size=="small"{
+
+        // @debug " la taille = small";
+
+        font-family: $font-title; 
+                font-size: 2rem;
+                padding: 0.5rem 1rem;
+                font-weight: 700;
+
+                //height: 3rem;
+                line-height: 2rem;
+
+        margin-top: 1rem;
+
+     }
+
+     
+
+}
+
+
+@mixin test-heading-style-special($size : "medium", $text-color : black, $isrounded : false, $bg-color : grey, $border-color: black){
+
+    @include heading-style($text-color, $size);
+    
+    @if $border-color != none and $border-color != null and $border-color != transparent {
+
+        border: 1px solid $border-color;
+    }
+
+    @if $isrounded != none and $isrounded != null and $isrounded != false{
+
+        border-radius: 2.5rem;
+    }
+
+    @if $bg-color != none and $bg-color != null and $bg-color != transparent{
+
+        background-color: $bg-color;
+    }
+    
+}
+
+
+// non utilisé ?!
+@mixin change-border-color($color: black){
+
+    border-color: $color;
+}
+
+//_______________________________________________________________________
+
+
+@mixin lead-paragraph-style($color : $color-primary)
+{
+
+    font-family: $font-lead-paragraph;
+    color : $color;
+
+    font-style: italic;
+    //font-weight: bold;
+
+    margin-top: 2.5rem;
+    
+    padding: 2rem;
+
+    text-align: center;
+    //vertical-align: middle;
+
+    font-size: 1.2rem;
+    line-height: 2rem;
+    //padding: 0.25rem;
+
+
+}
+
+@mixin paragraph-news-style(){
+
+    font-family: $font-text-normal; 
+    font-size: 1.2rem;
+    color : white;
+
+    text-indent: 2rem;
+    line-height: 2;
+      padding: 1rem 1.4rem;
+            
+
+    
+ 
+}
+
+//_____________Styles Boutons_____________
+
+@mixin button-style($bg-color: black, $text-color: white){
+
+  
+    //display: inline-block;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    border: none;
+
+    background-color: $bg-color;
+    color: $text-color;
+
+    font-family: $font-button;
+
+    font-size: 1rem;
+
+    height: 2.5rem;
+    padding:  0 2.5rem;
+    
+    border-radius: 2.5rem;
+
+    cursor: pointer;
+
+
+}
+
+
+@mixin left-radius($radius: 10px) {
+
+    @debug " left-radius";
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+}

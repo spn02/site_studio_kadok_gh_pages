@@ -1,0 +1,184 @@
+// code scss pour la page projects
+@import '../../scss/_main.scss';
+
+.news-container {
+
+    position: absolute;
+    top: 0;
+    z-index: 2;
+
+    background-color: darken($color-primary, 20%);
+
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 50%;
+
+
+    height: 100vh;
+    min-height: 100vh;
+
+    @media (max-width: 768px) {
+
+        position: relative;
+
+        margin-left: 0;
+        width: 100%;
+
+        min-height: 50vh;
+        height: max-content;
+        
+    }
+}
+
+.news-title {
+
+    // Assuming you want to overlay the title over the projects
+    position: fixed;
+    right: 50%; // Adjust as needed
+    top: 10px; // Adjust as needed
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5); // A subtle transparent background
+    color: white;
+
+    padding: 10px;
+
+    @include left-radius(2.5rem);
+
+    @media (max-width: 768px) {
+
+        right: 0; top: 0;
+        width: max-content;
+
+    }
+}
+
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .news-item {
+        //border: 1px solid green;
+
+        position: relative;
+
+        min-height: 33.33vh;
+
+        @media (max-width: 768px) {
+
+            min-height: 25vh;
+        }
+
+        picture{
+
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+
+            .news-image {
+
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover; // or 'contain', depending on your need
+
+    
+            }
+
+        }
+
+        // Pseudo-élément pour le dégradé 
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to left, rgba($color-primary, 0.2) 0%, rgba($color-primary, 1) 70%);
+            pointer-events: none; // Assurez-vous que le pseudo-élément ne bloque pas les interactions de l'utilisateur
+        }
+        
+        .news-info {
+
+            position: relative;
+            bottom: 0;
+            left: 10%; // or right: 0 if you want the text on the right
+            color: white;
+            width: 90%;
+            height: 100%;
+            padding: 16px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            //align-items: center;
+
+            z-index: 1;
+
+            @media (max-width:768px) {
+
+                margin: auto;
+                left: 0;
+
+            }
+
+           
+
+            h3 {
+
+                @include test-heading-style-special($size: "small",
+                $text-color: white,
+                $isrounded : none,
+                $bg-color : none,
+                $border-color :none);
+
+                margin:0;
+                margin-bottom: 5px;
+                left: 0;
+                padding: 0;
+            }
+
+            p {
+                
+                font-family: $font-text-normal; 
+                font-size: 1rem;
+                margin-bottom: 16px;
+            }
+
+            &__button {
+
+                display: flex;
+                justify-content: flex-start;
+                gap: 20px;
+
+                &--read-more {
+
+                    @extend .btn;
+
+                    @extend .pulsate-bck;
+
+                    background-color: $color-accent;
+
+                    // other styles...
+                }
+
+                &--buy {
+
+                    @extend .btn;
+
+                    background-color: $color-secondary;
+
+                    // other styles...
+                }
+
+            }
+
+        }
+    }
+
+}

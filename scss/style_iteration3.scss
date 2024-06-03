@@ -1,0 +1,1403 @@
+@import '././abstracts/_variables.scss'; // ou @import '../scss/abstracts/_variables.scss';
+@import '././abstracts/_mixins.scss';
+
+
+@import '././components/_button.scss';
+@import '././base/typography';
+
+
+
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+
+    //overflow-x: hidden;
+    //overflow-y: auto;
+}
+
+//body {}
+
+h1 {
+
+    color: green;
+
+    //font-size: 8rem;
+    //font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+
+    //margin-left: 5px;
+
+    font-family: $font-family-secondary-title;
+    font-weight: 400;
+
+}
+
+
+
+
+
+.bg-page-un {
+
+    //position: fixed;
+    //box-sizing: border-box;
+
+
+    width: 100%;
+    height: 100vh;
+
+
+    background-image: url(../images/paysage_silhouette_vectoriel_00.png);
+    background-size: 100% 50%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+
+    @media (max-width: 768px) { 
+
+        display: none;
+        //position: relative;
+        //width: 100%;
+
+    }
+
+
+}
+
+
+
+.panelLeft {
+
+
+
+
+    width: 50%;
+    //height: 100vh;
+
+
+    /*
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    */
+
+
+    // background image (fonctionnel si besoin)
+
+
+    position: fixed;
+    top: 20%;
+
+    z-index: 50;
+
+
+    @media (max-width: 768px) { 
+
+            position: relative;
+            width: 100%; height: 100vh;
+
+    }
+
+
+    h1 {
+
+
+        border: 1px solid red;
+
+        position: relative;
+
+        width: 50%;
+        height: 7rem;
+
+
+        margin: auto;
+        //margin-bottom: 0;
+        //left: 0;
+
+        text-align: center;
+        font-size: 7rem;
+        //font-family: Arial, Helvetica, sans-serif;
+        font-family: "Poiret One", sans-serif;
+
+        color: $color-primary;
+
+        ///*
+        @media (max-width: 768px) { 
+
+            //overflow: hidden;
+
+            font-size: 5rem;
+            
+
+        }
+        //*/
+
+
+    }
+
+    h2 {
+
+        //border: 1px solid black;
+
+        position: relative;
+
+        width: 40%;
+        margin: auto;
+        //margin-top:0;
+
+
+        text-align: right;
+
+        color: $color-secondary;
+
+
+    }
+
+    p {
+
+        //border: 1px solid black;
+        /*
+
+        margin-top: 5%;
+
+        position: relative;
+
+        width: 50vw;
+
+        text-align: center;
+        */
+
+
+        @include lead-paragraph-style;
+
+        margin-top: 5%;
+
+    }
+
+
+    //background-color: rgba(0,0,0,0.4);
+    //background-color: gray;
+
+
+
+}
+
+//@media only screen and (max-width: 768px) { }
+/* Règles CSS pour les écrans de largeur 600px ou moins (typiquement smartphones) */
+
+
+
+
+//@media only screen and (min-width: 769px) {}
+
+/* Règles CSS pour les écrans de largeur plus de 601px (typiquement tablettes, laptops et desktops) */
+
+.nav {
+
+    //border: 1px solid black;
+
+    position: fixed;
+
+    width: 50%;
+    height: 4rem;
+
+    //top: 0;
+    top: 50%;
+    //transform: translateY(-50%);
+
+    padding: 0;
+    margin: 0;
+
+    z-index: 100;
+
+    display: grid;
+    place-items: center;
+
+    ///*
+    @media (max-width: 768px) {
+
+        //position: fixed;
+
+        width: 100%;
+        height: 100%;
+
+        top:0;
+        //left:0;
+        
+    }
+    //*/
+
+    &__toggle {
+
+        display: none; // Le toggle est caché par défaut
+
+        @media (max-width: 768px) {
+            display: block; // Afficher le toggle sur petits écrans
+            position: absolute;
+            top: 1rem; left: 1rem;
+            width: 2rem; height: 2rem;
+            z-index: 200;
+
+            opacity: 0.1; // mettre > 0 lors du debug remettre à 1 pour le déploiement!
+        }
+
+    }
+
+    &__burger {
+
+        display: none; // Le label/bouton burger est caché par défaut
+
+        @media (max-width: 768px) {
+            display: block; // Afficher le bouton burger sur petits écrans
+            position: absolute;
+            cursor: pointer;
+
+            top: 1rem; left: 1rem;
+            font-size: 2rem;
+
+            z-index: 201;
+
+            //user-select: none;
+        }
+    }
+
+    &__menu {
+
+        //border: 1px solid red;
+
+        margin: 0;
+        padding: 0;
+
+        height: 100%;
+        width: 27.5em;
+
+        display: flex;
+        list-style-type: none;
+
+        @media (max-width: 768px) {
+
+            display: none; // Cacher le menu complet sur petits écrans
+            position: absolute;
+            top: 3rem;
+            left: 0;
+            width: 100%;
+            background-color: green;
+            flex-direction: column; // Stack les liens verticalement
+
+            .nav__toggle:checked + .nav__burger + & {
+
+                display: flex; // Afficher le menu quand le toggle est checked
+            }
+        }
+
+        &__item {
+
+
+            flex: 1;
+            display: flex;
+            align-items: stretch;
+
+
+            background-color: $color-primary;
+
+
+            &:hover {
+
+                background-color: $color-secondary;
+
+            }
+
+            &__link {
+
+                flex: 1;
+                display: flex;
+
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+
+                text-decoration: none;
+                color: white;
+
+                &:hover {
+
+                    color: white;
+                }
+
+            }
+
+        }
+
+    }
+
+
+}
+
+
+.page {
+
+    height: 100vh;
+
+}
+
+.home-page {
+
+
+    //position: absolute;
+    position: absolute;
+    //position: sticky;
+    //position: fixed;
+    z-index: 1;
+
+    top: 0;
+    //top: 100vh;
+
+
+    width: 50%;
+    left: 50%;
+
+    @media (max-width: 768px) { 
+
+        position: relative;
+        width: 100%;
+        left: 0;  
+
+    }
+
+
+    .panel {
+
+        width: 100%;
+        height: 100vh;
+        //height: 200vh;
+
+        //background-attachment: local;
+
+
+        &--panelRight {
+
+            //position: relative;
+            //position: static;
+
+            overflow: hidden;
+            //overflow: auto;
+
+            //background-color: black;
+
+            display: grid;
+            grid-template-rows: 50% 50%;
+
+           
+
+            .panelRight__section {
+
+                //border: 1px solid white;
+
+                width: 100%;
+
+
+                /*
+                position: sticky;
+                top:0;
+                */
+
+
+                &--Top {
+
+                    .slidePanel {
+
+                        width: 100%;
+                        height: 50vh;
+
+
+                        position: relative;
+                        z-index: 0;
+
+
+                        animation: animationSlide1 20s infinite;
+                        animation-direction: alternate;
+                        //animation-timing-function:  ease-in-out;
+
+                        @keyframes animationSlide1 {
+                            // demander a chatGPT de "re-calculer" l'animation en fonction du nombre d'image(lorsque j'insère une nouvelle image) ou  créer une fonction
+
+                            0%,
+                            12.5% {
+                                transform: translateY(0%);
+                            }
+
+                            25%,
+                            37.5% {
+                                transform: translateY(-100%);
+                            }
+
+                            50%,
+                            62.5% {
+                                transform: translateY(-200%);
+                            }
+
+                            75%,
+                            87.5% {
+                                transform: translateY(-300%);
+                            }
+
+                            100% {
+                                transform: translateY(-300%);
+                            }
+
+                        }
+
+                        &__slide {
+
+                            height: 50vh;
+                            width: 100%;
+                            //border: 1px solid green;
+
+                            img {
+
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+
+                        }
+
+
+                    }
+
+
+                }
+
+                &--Bottom {
+
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+
+                    z-index: 1;
+
+                    @media (max-width: 768px) { 
+
+                        /*
+                        position: relative;
+                        width: 100%;
+                        left: 0;  
+                        */
+
+                        //display: block;
+                
+                    }
+
+                    .panelRight__content {
+
+                        //border: 1px solid green;
+                        background-color: rgba(white, 1);
+
+                        //scroll-behavior: auto;
+                        overflow: auto;
+
+
+
+                        &--news {
+
+                            //border: 1px solid red;
+
+                            background-color: $color-primary;
+
+                            color: white;
+
+                            height: 100%;
+
+
+
+                            display: flex;
+                            flex-direction: column;
+
+
+
+                            //align-content: stretch ;
+                            //align-items: center;
+                            //flex-shrink: 1;
+
+                            h2 {
+
+                                @include test-heading-style-special($size: "small",
+                                    $text-color: white,
+                                    $isrounded : true,
+                                    $bg-color : none,
+                                    $border-color :none);
+
+                            }
+
+                            p {
+
+                                //border: 1px solid white;
+
+                                overflow-y: auto;
+
+                                // flex-grow: 6;
+                                height: 60%;
+
+                                @include paragraph-news-style;
+
+                                a {
+                                    //border: 1px solid red;
+
+                                    display: inline-block;
+
+                                    width: 100%;
+
+                                    text-align: right;
+
+                                    color: $color-accent;
+                                }
+
+                            }
+
+                            .container-btn {
+
+                                //border: 1px solid yellow;
+
+                                //position:relative;
+                                //top:50%;
+
+                                //flex-grow: 3;
+                                height: 20%;
+
+                                //min-height: 50px;
+
+                                //margin:auto;
+
+                                display: flex;
+                                align-items: start;
+                                justify-content: center;
+
+                                .btn {
+
+
+                                    background-color: $color-accent;
+                                    color: $color-primary;
+
+                                    //margin: auto;
+
+
+                                }
+
+                                /*
+                                a {
+
+                                    //top: 0;
+                                    margin: auto;
+                                }
+                                */
+
+
+                                //width: 100%;
+                            }
+
+
+
+                        }
+
+                        &--newsletter {
+
+                            //border: 1px solid blue;
+                            height: 100%;
+
+
+                            /*
+                            background-color: rgba($color-secondary, 0.9);
+                            background-size: 50%;
+                            background-position: bottom;
+                            */
+
+                            /*
+                            display: grid;
+                            grid-template-rows: 60% 40%;
+                            */
+
+                            section {
+
+                                //border: 2px solid green;
+
+                                position: relative;
+
+                                height: 100%;
+
+                                display: flex;
+                                flex-direction: column;
+
+                                h2 {
+
+                                    @include test-heading-style-special($size: "small",
+                                        $text-color: $color-primary,
+                                        $isrounded : none,
+                                        $bg-color : none,
+                                        $border-color :none);
+
+
+                                }
+
+                                .newsletter-form {
+
+                                    height: 80%;
+                                    //position: absolute;
+                                    display: flex;
+                                    flex-direction: column;
+
+                                    //gap: 50px;
+
+                                    label {
+
+                                        //border: 1px solid red;
+
+                                        /*
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        */
+
+                                        //margin: auto;
+                                        //top: 50%;
+
+                                        @include lead-paragraph-style;
+
+                                        height: 40%;
+
+                                    }
+
+                                    &__group {
+
+                                        //margin:0;
+                                        //padding: 0;
+
+
+                                        //border: 1px solid black;
+
+                                        background-color: $color-accent;
+
+                                        height: 60%;
+
+                                        display: flex;
+                                        flex-direction: column;
+
+                                        //justify-content: center;
+                                        align-items: center;
+
+                                        gap: 20px;
+
+                                    }
+
+                                    &__input-email {
+
+
+                                        //border: 1px solid #ccc;
+
+                                        position: relative;
+                                        border: none;
+                                        width: 80%;
+
+                                        margin-top: 20px;
+                                        //margin : auto;
+
+
+
+                                        //margin-top: ;
+                                        //margin: auto;
+                                        padding: 0.75rem 1.25rem;
+                                        text-align: center;
+                                        //text-decoration: none;
+                                        background-color: rgba(white, 1);
+                                        border-radius: 0.3rem;
+
+
+                                    }
+
+
+                                    &__button-send {
+
+
+                                        //display: flex;
+                                        //margin: auto;
+                                        //align-content: center;
+                                        background-color: $color-primary;
+                                        color: white;
+                                    }
+
+
+                                }
+
+                            }
+
+
+                            /*
+                            .newsletter-background {
+
+                                border: 1px solid green;
+
+                                position: absolute;
+
+                                .newsletterPart {
+
+                                    display: flex;
+                                    flex-direction: column;
+
+
+                                    &--top {
+
+                                        //border: 1px solid red;
+
+                                        height: 50%;
+
+
+                                        //background-color: $color-secondary;
+                                    }
+
+                                    &--bottom {
+
+                                        //border: 1px solid blue;
+
+                                        height: 50%;
+
+
+                                        background-color: $color-secondary;
+
+                                        //display: flex;
+
+                                    }
+
+
+
+                                }
+
+                            }
+                            */
+
+
+
+
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+
+        }
+
+
+
+    }
+
+}
+
+
+#page-deux {
+
+
+    //border: 1px solid red;
+
+    //position: absolute;
+    position: relative;
+
+    margin: 0;
+    padding: 0;
+
+
+    ///* 
+    top:0;
+    left: 0vw;
+    width: 100%;
+    //*/
+
+    height: 100%;
+
+    z-index: 2;
+
+    
+    //background-color: rgba($color-secondary, 0.3);
+    //background-color: rgba($color-secondary, 0.1);
+    //background-color: white;
+
+
+    ///*
+    background-image: url(../images/background_01.jpg);
+    //background-size: auto 50%;
+    background-size: cover;
+    //background-position: center bottom;
+    //background-position-y:bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    //*/
+
+    /*
+    background-image: url(../images/paysage_silouette_plage_vectoriel_00.png);
+    //background-size: auto 50%;
+    background-size: auto 50%;
+    background-position: center bottom;
+    //background-position-y:bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    */
+
+    //background-color: rgba($color-accent, 1);
+
+    /*
+
+    background-image: url(../images/Titre_kadok_01.png);
+    background-size: 50% auto;
+    //background-position: center left;
+    background-position:  0% 20%;
+
+    background-color: rgba($color-accent, 1);
+
+    */
+
+    .panel-bg-white {
+
+        //border: 1px solid red;
+
+        background-color: rgba(white, 0.8);
+
+        position: absolute;
+
+        width: 50%;
+        height: 100%;
+
+        left:0;
+        
+        z-index: 3;
+
+        
+        @media (max-width: 768px) { 
+
+            display: none;
+            background-color: aqua;
+        }
+        
+
+    }
+
+
+    .panel-droite {
+
+        
+
+        //border: 1px solid green;
+        position: relative;
+
+        width: 50%;
+        height: 100vh;
+
+        //top:0;
+        
+
+        left: 50%;
+
+        z-index: 4;
+
+
+        overflow: auto;
+
+        @media (max-width: 768px) { 
+
+            position: relative;
+            width: 100%;
+            left: 0;  
+    
+        }
+
+
+
+        
+
+        .heading-container {
+
+            border: 1px solid green;
+            z-index: 3;
+
+            h2 {
+
+                ///*
+                @include test-heading-style-special($size: "medium",
+                    $text-color: white,
+                    $isrounded : true,
+                    $bg-color : false,
+                    $border-color : white);
+    
+                //*/
+    
+            }
+
+        }
+        
+
+
+        p {
+
+            //overflow: auto;
+
+            @include lead-paragraph-style;
+
+            background-color: rgba(white, 0.7);
+
+        }
+
+    }
+}
+
+
+#page-trois {
+
+
+    height: 100vh;
+    width: 100%;
+
+    position: relative;
+
+
+    //background-color: rgba($color-accent, 1);
+    background-color: white;
+
+    .panel-droite {
+
+
+        overflow: auto;
+
+        background-color: #7B77E5;
+
+        position: relative;
+
+        width: 50%;
+        height: 100%;
+
+        left: 50%;
+
+        @media (max-width: 768px) {       
+            //position: relative;
+            width: 100%;
+            left: 0;  
+        }
+
+        display: flex;
+        flex-direction: column;
+
+        //justify-content: center;
+        //vertical-align: middle;
+
+
+        .skill-heading {
+
+            border-bottom: 1px solid white;
+            border-bottom-style: dotted;
+
+            flex-grow: 1;
+
+            //display: flex;
+            //flex-direction: column;
+
+            h2 {
+                //border: 1px solid red;
+
+                $new-color-darked : darken($color-primary, 10%);
+
+                @include test-heading-style-special($size: "medium",
+                    $text-color: white,
+                    $isrounded : true,
+                    $bg-color : darken($color-primary, 10%),
+                    $border-color :none);
+
+
+                //text-align: center;
+                //margin: auto;
+                //@include heading-style(white);
+
+                /* // faire le fond rond
+                background-color: #5A57B1;
+                width: 20%;
+                border-radius: 2.5rem;
+                margin:auto;
+                */
+
+
+            }
+
+            p {
+
+                //border: 1px solid pink;
+
+                /*
+                display: inline-block;
+
+                width: 90%;
+
+                margin: auto;
+                */
+
+                @include lead-paragraph-style(white);
+            }
+
+
+        }
+
+        .panel-skill-item {
+
+            //border: 1px solid yellow;
+
+            flex-grow: 1;
+
+            display: flex;
+            //align-items:stretch;
+            justify-content: center;
+            //align-content: center;
+
+
+            &__container {
+
+                //border:1px solid red;
+                //margin: auto;
+                width: 80%;
+
+                display: flex;
+                flex-direction: column;
+
+                //justify-content: center;
+
+                &--development {
+
+                    //border: 1px solid green;
+
+                    //justify-self: center;
+                    align-self: center;
+
+
+                }
+
+                &--art {
+
+                    align-self: flex-start;
+
+                }
+
+
+
+                .skill-heading-item {
+
+                    //border: 1px solid blue;
+                    //background-color: grey;
+
+
+                    display: flex;
+                    flex-direction: row;
+                    //align-items: center;
+
+
+                    &--development {
+
+                        //margin-right: 16px;
+                        justify-content: left;
+
+                    }
+
+                    &--art {
+
+                        //margin-left: 16px;
+                        justify-content: right;
+
+
+                    }
+
+                    .div-correction_heading-width {
+
+                        //border: 1px solid white;
+                        background-color: white;
+                        border-radius: 2.5rem;
+                        //box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+
+
+                        flex: 0 1 auto; // Ne grandit pas, peut rétrécir, taille basée sur le contenu
+                        // flex: 0 0 auto; Si vous ne voulez pas que les items rétrécissent
+
+                        height: 3rem;
+                        padding: 0rem 1rem;
+
+                        display: flex;
+
+                        h3 {
+
+
+                            //border: 1px solid red;
+
+                            //text-align: center;
+                            //justify-content: center;
+
+                            /*
+                            height: 64px;
+                            line-height: 64px;
+                            */
+
+                            ///*
+                            font-family: $font-family-roboto;
+                            font-size: 1.5em;
+                            font-weight: 700;
+
+                            height: 1.5em;
+                            line-height: 1.5em;
+                            //padding:  0rem 1rem ;
+                            //*/
+
+                            //font-family: $font-family-roboto;
+                            text-transform: uppercase;
+
+                            color: $color-primary;
+
+
+
+                            align-self: center;
+                            justify-self: center;
+
+
+                        }
+
+                        .icon {
+
+                            //border: 1px solid green;
+
+                            width: auto;
+                            height: 100%;
+
+                            &--development {
+
+                                margin-right: 16px;
+
+                            }
+
+                            &--art {
+
+                                margin-left: 16px;
+
+
+                            }
+
+
+
+
+                        }
+
+
+                    }
+
+
+                }
+
+                .skill-list {
+
+
+                    //border: 1px solid yellow;
+
+                    margin-top: 0.5rem;
+
+
+
+                    font-family: $font-family-roboto;
+
+                    line-height: 1.5em;
+                    //justify-content: left;
+
+                    color: white;
+
+                    list-style-type: none;
+
+                    &--development {
+
+                        text-align: left;
+                        margin-left: 2rem;
+
+                    }
+
+                    &--art {
+
+                        text-align: right;
+                        margin-right: 2rem;
+                    }
+
+                }
+
+
+
+            }
+
+
+
+
+        }
+
+    }
+
+
+}
+
+#page-quatre {
+
+
+
+    //position: absolute;
+    position: relative;
+    //position: static;
+    //margin-top: 200vh;
+
+    /*
+    width: 50vw;
+    left: 50%;
+    */
+
+    ///*
+    width: 100%;
+    left: 0;
+    //*/
+
+    //top: 200vh;
+
+    //height: 100vh;
+
+    z-index: 3;
+
+    background-color: rgba($color-accent, 1);
+    //background-color: rgba(#BCBCBC, 1);
+
+
+
+    /*
+    background-image: url(../images/background_01.jpg);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    */
+
+    section {
+
+
+        border: 1px solid white;
+        border-style: dotted;
+
+        position: absolute;
+
+        height: 80%;
+        width: 40%;
+
+        left: 55%;
+        top: 10%;
+
+        display: grid;
+        grid-template-rows: 20% 80%;
+
+        z-index: 4;
+
+
+        @media (max-width: 768px) {       
+            //position: relative;
+
+            position: relative;
+            display: block;
+
+            margin: auto;
+            width: 90%;
+            height: 90%;
+
+            top:5%;
+            left: 0;  
+        }
+
+        //box-shadow: 5px 5px 5px rgba(black, 0.2);
+
+
+
+        ///*
+        h2 {
+
+            //border: 1px solid blue;
+
+            //background-color: $color-primary;
+
+            //position: absolute;
+            //position: absolute;
+
+            color: white;
+
+        }
+
+        //*/
+
+
+        .form {
+
+
+            //position: relative;
+
+            //height: 90%;
+            //width: 40%
+
+            //left: 50%;
+
+            //background-color: rgba(white, 0.4);
+
+        }
+
+    }
+
+    .panel-image-cactus {
+
+        //border: 1px solid black;
+
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+
+        left: 0;
+
+        z-index: 3;
+
+
+        @media (max-width: 768px) {       
+            //position: relative;
+
+            
+            display: none;
+
+            /*
+            margin: auto;
+            width: 80%;
+            left: 0;  
+            */
+        }
+
+
+        ///*
+        background-image: url(../images/cactus_00.png);
+        //background-size: auto 100%;
+        background-size: auto 50%;
+        background-position: bottom left;
+        //background-position: bottom;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        //*/
+
+    }
+
+
+}

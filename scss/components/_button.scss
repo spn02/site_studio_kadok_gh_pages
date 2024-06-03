@@ -1,0 +1,65 @@
+.btn {
+
+    @include button-style;
+
+    //$color : background-color; // début utilisation meme variable pour couleur a continuer ?!...ou pas nécessairement
+
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover{
+
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); // Ajustez la couleur et l'intensité selon vos besoins
+        transform: scale(1.05);     
+    }
+    &:active {
+
+        transform: scale(0.95);
+
+    }
+
+
+    // Modificateurs pour les couleurs spécifiques
+    &--primary {
+
+        @extend .btn;
+        background-color: $color-primary;
+
+        &:hover {
+            background-color: darken($color-primary, 10%);
+        }
+    }
+
+    &--secondary {
+
+        @extend .btn;
+        background-color: $color-secondary;
+        
+        &:hover {
+            background-color: darken($color-accent, 12%);
+            
+            //box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            //box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); // Ajustez la couleur et l'intensité selon vos besoins
+            //border-color: $color-accent
+        }
+        &:active {
+            background-color: darken($color-secondary, 20%);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            //border-color: darken($color-accent, 20%);
+        }
+    }
+
+    &--accent {
+
+        @extend .btn;
+        background-color: $color-accent;
+        color:$color-primary;
+
+        &:hover {
+            background-color: darken($color-accent, 10%);
+        }
+    }
+
+
+}
