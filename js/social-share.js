@@ -19,7 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Article partagé sur Twitter');
     });
 
+    
     linkedinBtn.addEventListener('click', function() {
         console.log('Article partagé sur LinkedIn');
     });
+    
 });
