@@ -1,0 +1,2 @@
+/*
+  Permissions-Policy: interest-cohort=(), attribution-reporting=(), battery=(), compute-pressure=(), otp-credentials=(), private-state-token-issuance=(), serial=(), shared-storage=(), shared-storage-select-url=(), private-state-token-redemption=(), usb-unrestricted=()
