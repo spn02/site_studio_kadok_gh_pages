@@ -79,8 +79,9 @@
 
     <div class="btn-container">
         <a href="news.html" class="btn back-button">Retour</a>
+        <!-- Boutons de partage social -->
+       
     </div>
-
 
     <main class="news-main-content">
         <picture class="news-banner">
@@ -88,6 +89,13 @@
             <source srcset="public/images/rendu_lowPoly_paysage_003_3.webp" media="(max-width: 768px)">
             <img class="news-banner__img" src="image-small.jpg" alt="bannière news de Kadok studio">
         </picture>
+
+        <div class="social-share">
+            <a href="#" class="share-btn" id="share-facebook" title="Partager sur Facebook">Partager sur Facebook</a>
+            <a href="#" class="share-btn" id="share-twitter" title="Partager sur Twitter">Partager sur Twitter</a>
+            <a href="#" class="share-btn" id="share-linkedin" title="Partager sur LinkedIn">Partager sur LinkedIn</a>
+        </div>
+        
         <!--  <img src="public/images/rendu_lowPoly_paysage_003_3.jpg" alt="Bannière de la news" class="news-banner"> -->
         <div class="news-info">
             <h1 class="news-detail__title">Bienvenue sur le Site Officiel de KADOK Studio!</h1>
@@ -128,11 +136,15 @@
                 </p>
                 <h2>Rejoignez Notre Communauté</h2>
                 <p>Nous vous invitons à participer à la conversation et à vous engager avec nous et notre communauté.
-                    Suivez-nous sur 
-                    <a href="https://www.facebook.com/people/Kadok-Studio/61559974412749/" title="Suivez-nous sur facebook" target="_blank" rel="noopener noreferrer">Facebook</a>, 
-                    <a href="https://x.com/KadokStudio" title="Suivez-nous sur x (Twitter)" target="_blank" rel="noopener noreferrer">X (anciennement Twitter)</a>, 
-                    <a href="https://www.instagram.com/kadokstudio/" title="Suivez-nous sur Instagram" target="_blank" rel="noopener noreferrer">Instagram</a> 
-                    et <a href="https://www.youtube.com/@KadokStudio" title="Suivez-nous sur youtube" target="_blank" rel="noopener noreferrer">Youtube</a> 
+                    Suivez-nous sur
+                    <a href="https://www.facebook.com/people/Kadok-Studio/61559974412749/"
+                        title="Suivez-nous sur facebook" target="_blank" rel="noopener noreferrer">Facebook</a>,
+                    <a href="https://x.com/KadokStudio" title="Suivez-nous sur x (Twitter)" target="_blank"
+                        rel="noopener noreferrer">X (anciennement Twitter)</a>,
+                    <a href="https://www.instagram.com/kadokstudio/" title="Suivez-nous sur Instagram" target="_blank"
+                        rel="noopener noreferrer">Instagram</a>
+                    et <a href="https://www.youtube.com/@KadokStudio" title="Suivez-nous sur youtube" target="_blank"
+                        rel="noopener noreferrer">Youtube</a>
                     pour rester connecté avec les dernières nouvelles,
                     participer à des discussions et même influencer nos futurs projets.
                     Explorez notre site pour découvrir nos jeux, plongez dans l'univers de KADOK Studio, et partagez
@@ -167,7 +179,8 @@
 
             <form id="newsletter-form" class="newsletter-form" data-modal-id="newsletterModal"
                 action="URL_DE_TRAITEMENT" method="POST">
-                <label class="newsletter-form__title-label" for="email">Soyez les premiers informés de nos nouveautés et offres exclusives !</label>
+                <label class="newsletter-form__title-label" for="email">Soyez les premiers informés de nos nouveautés et
+                    offres exclusives !</label>
                 <div class="newsletter-form__group">
                     <label class="consent-checkbox">
                         <input type="checkbox" name="consent" required>
@@ -253,6 +266,7 @@
 <script type="module" src="js/modal.js"></script>
 <script src="js/tooltip.js"></script>
 <script src="js/menu.js"></script>
+<script src="js/social-share.js"></script>
 
 
 </html>
